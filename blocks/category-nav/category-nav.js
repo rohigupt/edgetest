@@ -2,9 +2,10 @@ export default function decorate(block) {
   const rows = [...block.children].slice(1);
 
   const items = rows.map((row) => {
-    const [label, link] = [...row.children].map((cell) =>
-      cell.textContent.trim(),
-    );
+    const cells = [...row.children];
+    const label = cells[0]?.textContent.trim();
+    const link = cells[1]?.textContent.trim();
+
     return { label, link };
   });
 
@@ -13,9 +14,9 @@ export default function decorate(block) {
 
   const ul = document.createElement('ul');
 
-  items.forEach(({ label, link }) => {
+  items.forEach((item) => {
     const li = document.createElement('li');
-    li.innerHTML = `<a href="${link}">${label}</a>`;
+    li.innerHTML = `<a href="${item.link}">${item.label}</a>`;
     ul.appendChild(li);
   });
 
