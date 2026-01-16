@@ -1,0 +1,10 @@
+.category-nav {
+  background: #fff;
+  border-bottom: 1px solid #eee;
+}
+
+.category-list {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+}
