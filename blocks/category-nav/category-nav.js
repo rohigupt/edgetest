@@ -5,7 +5,6 @@ export default function decorate(block) {
     const [label, link] = [...row.children].map((cell) =>
       cell.textContent.trim(),
     );
-
     return { label, link };
   });
 
